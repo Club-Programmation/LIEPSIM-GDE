@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca2hj6r62eayi"]
+[gd_scene load_steps=6 format=3 uid="uid://ca2hj6r62eayi"]
 
 [ext_resource type="FontFile" uid="uid://fo5ivwxswnu" path="res://fonts/Super Pixel Personal Use.ttf" id="1_flhq8"]
+[ext_resource type="Script" uid="uid://c0xeokwguidi6" path="res://scenes/ui/menus/exit.gd" id="2_h1kbi"]
+[ext_resource type="Script" uid="uid://ci2wnqcpavnsp" path="res://scenes/ui/menus/options.gd" id="2_whicr"]
+[ext_resource type="Script" uid="uid://dbh4lwc4wo5be" path="res://scenes/ui/menus/return.gd" id="4_ct055"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1kbi"]
 font = ExtResource("1_flhq8")
@@ -27,25 +30,67 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="TitleScreenVBox" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/TitleScreenVBox"]
 layout_mode = 2
 text = "LIEPSIM"
 label_settings = SubResource("LabelSettings_h1kbi")
 horizontal_alignment = 1
 
-[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/TitleScreenVBox"]
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
+[node name="Start" type="Button" parent="MarginContainer/TitleScreenVBox/ButtonsVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Start Game"
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox"]
+[node name="Options" type="Button" parent="MarginContainer/TitleScreenVBox/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+script = ExtResource("2_whicr")
+
+[node name="Exit" type="Button" parent="MarginContainer/TitleScreenVBox/ButtonsVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Exit"
+script = ExtResource("2_h1kbi")
+
+[node name="OptionsVBox" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/OptionsVBox"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_h1kbi")
+horizontal_alignment = 1
+
+[node name="ShowTitleScreen" type="Button" parent="MarginContainer/OptionsVBox/Label"]
+size_flags_horizontal = 4
+text = "< BACK"
+flat = true
+script = ExtResource("4_ct055")
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/OptionsVBox"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Display Settings" type="Button" parent="MarginContainer/OptionsVBox/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Display Settings"
+
+[node name="Audio Settings" type="Button" parent="MarginContainer/OptionsVBox/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Audio Settings"
+
+[node name="Input Settings" type="Button" parent="MarginContainer/OptionsVBox/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Input Settings"
