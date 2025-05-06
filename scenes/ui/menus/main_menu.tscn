@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca2hj6r62eayi"]
+[gd_scene load_steps=8 format=3 uid="uid://ca2hj6r62eayi"]
 
 [ext_resource type="FontFile" uid="uid://fo5ivwxswnu" path="res://fonts/Super Pixel Personal Use.ttf" id="1_flhq8"]
 [ext_resource type="Script" uid="uid://c0xeokwguidi6" path="res://scenes/ui/menus/exit.gd" id="2_h1kbi"]
 [ext_resource type="Script" uid="uid://ci2wnqcpavnsp" path="res://scenes/ui/menus/options.gd" id="2_whicr"]
 [ext_resource type="Script" uid="uid://dbh4lwc4wo5be" path="res://scenes/ui/menus/return.gd" id="4_ct055"]
+[ext_resource type="Script" uid="uid://srcxuwhad5tu" path="res://scenes/ui/menus/display_settings.gd" id="5_oj1oe"]
+[ext_resource type="Script" uid="uid://cuuo24nw8fne2" path="res://scenes/ui/menus/display-return.gd" id="5_p0q51"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1kbi"]
 font = ExtResource("1_flhq8")
@@ -71,6 +73,7 @@ label_settings = SubResource("LabelSettings_h1kbi")
 horizontal_alignment = 1
 
 [node name="ShowTitleScreen" type="Button" parent="MarginContainer/OptionsVBox/Label"]
+layout_mode = 0
 size_flags_horizontal = 4
 text = "< BACK"
 flat = true
@@ -84,6 +87,7 @@ size_flags_vertical = 6
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Display Settings"
+script = ExtResource("5_oj1oe")
 
 [node name="Audio Settings" type="Button" parent="MarginContainer/OptionsVBox/ButtonsVBox"]
 layout_mode = 2
@@ -94,3 +98,39 @@ text = "Audio Settings"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Input Settings"
+
+[node name="DisplaySettingsVBox" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/DisplaySettingsVBox"]
+layout_mode = 2
+text = "Display Settings"
+label_settings = SubResource("LabelSettings_h1kbi")
+horizontal_alignment = 1
+
+[node name="ShowTitleScreen" type="Button" parent="MarginContainer/DisplaySettingsVBox/Label"]
+layout_mode = 0
+size_flags_horizontal = 4
+text = "< BACK"
+flat = true
+script = ExtResource("5_p0q51")
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/DisplaySettingsVBox"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="FHD" type="Button" parent="MarginContainer/DisplaySettingsVBox/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "1080p (16:9)"
+
+[node name="HD" type="Button" parent="MarginContainer/DisplaySettingsVBox/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "720p (16:9)"
+
+[node name="SD" type="Button" parent="MarginContainer/DisplaySettingsVBox/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "480p (16:9)"
