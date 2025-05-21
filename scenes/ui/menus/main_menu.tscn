@@ -9,7 +9,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1kbi"]
 font = ExtResource("1_flhq8")
-font_size = 64
+font_size = 32
 
 [node name="Main-Menu" type="Control"]
 layout_mode = 3
@@ -19,14 +19,14 @@ offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 649.0
+offset_right = 642.0
+offset_bottom = 380.0
 color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 649.0
+offset_right = 639.0
+offset_bottom = 378.0
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -116,21 +116,17 @@ text = "< BACK"
 flat = true
 script = ExtResource("5_p0q51")
 
-[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/DisplaySettingsVBox"]
+[node name="ButtonsVBox" type="HBoxContainer" parent="MarginContainer/DisplaySettingsVBox"]
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="FHD" type="Button" parent="MarginContainer/DisplaySettingsVBox/ButtonsVBox"]
+[node name="Label" type="Label" parent="MarginContainer/DisplaySettingsVBox/ButtonsVBox"]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "1080p (16:9)"
+text = "                              Window Mode      "
 
-[node name="HD" type="Button" parent="MarginContainer/DisplaySettingsVBox/ButtonsVBox"]
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/DisplaySettingsVBox/ButtonsVBox"]
+clip_contents = true
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-text = "720p (16:9)"
-
-[node name="SD" type="Button" parent="MarginContainer/DisplaySettingsVBox/ButtonsVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "480p (16:9)"
+item_count = 1
+popup/item_0/id = 0
